@@ -23,20 +23,28 @@ This is a shell script that uses Apple's CLI kext management tools (`kextunload`
 
    > Consider buying TBS Pro to support the original developer  [@rugarciap](https://github.com/rugarciap).
 
-2. Run Turbo Boost Manager and enjoy your cooler mac.
+2. This is the tmux branch of the project which allows TurboBoostManager to run in a tmux session. 
 
   ```sh
-  ./TurboBoostManager
+  tmux new-session -s TurboBoost "/path/to/TurboBoostManager"
   ```
-  The CLI presents you the following options. Pick one to do what you want.
+  
 
+  
+You can also add the following line to your `.bashrc` or `.zshrc` to fire up a session for Turbo Boost Manager, if it is not running already.
+	
+	```sh
+	tmux list-sessions grep -c "TurboBoost" >/dev/null 2>&1 || tmux new-session -s TurboBoost "/path/to/TurboBoostManager"
+	```
+	The CLI presents you the following options. Pick one to do what you want.
+  
   ```sh
- -- Turbo Boost Manager --
-	1) Disable Turbo Boost
-	2) Enable Turbo Boost
-	3) Re-Disable
-	4) Check status
-	5) Exit
+   -- Turbo Boost Manager --
+  1) Disable Turbo Boost
+  2) Enable Turbo Boost
+  3) Re-Disable
+  4) Check status
+  5) Exit
   ```
   
   ![example](assets/example.png)
