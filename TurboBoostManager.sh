@@ -29,7 +29,7 @@ do
 	        CHECK_STATUS
             if [ $result -eq 0 ]; then
                 LOAD
-                break
+                sudo -k 
             else
                 PRINT_STATUS
                 sleep 0.5
@@ -42,15 +42,15 @@ do
                 sleep 0.5
             else
                 UNLOAD
-                break
+                sudo -k 
             fi
             ;;
         3)
             PRINT_STATUS
             UNLOAD
-            sleep 1 # give time to the system to do unload the kext properly
+            sleep 3 # give time to the system to do unload the kext properly
             LOAD
-            break
+            sudo -k 
             ;;
         4)
             PRINT_STATUS
@@ -69,5 +69,4 @@ do
             continue
     esac
 done
-sudo -k 
 exit 0
